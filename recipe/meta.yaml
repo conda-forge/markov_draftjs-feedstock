@@ -1,6 +1,6 @@
 {% set name = "markov_draftjs" %}
-{% set version = "0.1.1" %}
-{% set sha256 = "62e1655d2679bac570355f122eabb9acc97d4147904649885f160f8136d16350" %}
+{% set version = "0.2.0" %}
+{% set sha256 = "aad60a213eba9ed6c572c7a9cd35ead47875759f789e57334a75b345ffcb919e" %}
 
 package:
   name: {{ name|lower }}
@@ -14,10 +14,10 @@ source:
 build:
   number: 0
   noarch: python
-  script: python -m pip install --no-deps --ignore-installed .
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
-  build:
+  host:
     - python
     - setuptools
     - pip
@@ -39,9 +39,8 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'Draft.js sample content generated with Markov chains of Project Gutenberg books.'
-  description: 
-    Draft.js sample content generated with Markov chains of Project Gutenberg books.
+  summary: Draft.js sample content generated with Markov chains of Project Gutenberg books.
+  description: Draft.js sample content generated with Markov chains of Project Gutenberg books.
   doc_url: https://github.com/thibaudcolas/markov_draftjs
   dev_url: https://github.com/thibaudcolas/markov_draftjs
 
