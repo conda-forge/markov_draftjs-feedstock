@@ -1,38 +1,33 @@
 {% set name = "markov_draftjs" %}
-{% set version = "0.1.1" %}
-{% set sha256 = "62e1655d2679bac570355f122eabb9acc97d4147904649885f160f8136d16350" %}
+{% set version = "0.2.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/markov_draftjs-{{ version }}.tar.gz
+  sha256: aad60a213eba9ed6c572c7a9cd35ead47875759f789e57334a75b345ffcb919e
 
 build:
-  number: 0
   noarch: python
-  script: python -m pip install --no-deps --ignore-installed .
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
 
 requirements:
-  build:
-    - python
-    - setuptools
+  host:
+    - python >=3.8
     - pip
   run:
-    - python
+    - python >=3.8
 
 test:
-  requires:
-    - tox >=2.3.1
-    - coverage >=4.1.0
-    - flake8 >=3.2.0
-    - isort ==4.2.5
-
   imports:
     - markov_draftjs
+  commands:
+    - pip check
+  requires:
+    - pip
 
 about:
   home: https://github.com/thibaudcolas/markov_draftjs
@@ -48,4 +43,5 @@ about:
 extra:
   recipe-maintainers:
     - cshaley
+    - rxm7706
     - sannykr
