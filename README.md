@@ -1,25 +1,39 @@
-About markov_draftjs
-====================
+About markov_draftjs-feedstock
+==============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/markov_draftjs-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/thibaudcolas/markov_draftjs
 
 Package license: MIT
 
-Feedstock license: BSD 3-Clause
-
 Summary: Draft.js sample content generated with Markov chains of Project Gutenberg books.
+
+Development: https://github.com/thibaudcolas/markov_draftjs
+
+Documentation: https://github.com/thibaudcolas/markov_draftjs
 
 Draft.js sample content generated with Markov chains of Project Gutenberg books.
 
 Current build status
 ====================
 
-All platforms: [![Circle CI](https://circleci.com/gh/conda-forge/markov_draftjs-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/markov_draftjs-feedstock)
+
+<table><tr><td>All platforms:</td>
+    <td>
+      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5946&branchName=main">
+        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/markov_draftjs-feedstock?branchName=main">
+      </a>
+    </td>
+  </tr>
+</table>
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/markov_draftjs/badges/version.svg)](https://anaconda.org/conda-forge/markov_draftjs)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/markov_draftjs/badges/downloads.svg)](https://anaconda.org/conda-forge/markov_draftjs)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-markov_draftjs-green.svg)](https://anaconda.org/conda-forge/markov_draftjs) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/markov_draftjs.svg)](https://anaconda.org/conda-forge/markov_draftjs) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/markov_draftjs.svg)](https://anaconda.org/conda-forge/markov_draftjs) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/markov_draftjs.svg)](https://anaconda.org/conda-forge/markov_draftjs) |
 
 Installing markov_draftjs
 =========================
@@ -28,23 +42,52 @@ Installing `markov_draftjs` from the `conda-forge` channel can be achieved by ad
 
 ```
 conda config --add channels conda-forge
+conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `markov_draftjs` can be installed with:
+Once the `conda-forge` channel has been enabled, `markov_draftjs` can be installed with `conda`:
 
 ```
 conda install markov_draftjs
 ```
 
-It is possible to list all of the versions of `markov_draftjs` available on your platform with:
+or with `mamba`:
+
+```
+mamba install markov_draftjs
+```
+
+It is possible to list all of the versions of `markov_draftjs` available on your platform with `conda`:
 
 ```
 conda search markov_draftjs --channel conda-forge
 ```
 
+or with `mamba`:
+
+```
+mamba search markov_draftjs --channel conda-forge
+```
+
+Alternatively, `mamba repoquery` may provide more information:
+
+```
+# Search all versions available on your platform:
+mamba repoquery search markov_draftjs --channel conda-forge
+
+# List packages depending on `markov_draftjs`:
+mamba repoquery whoneeds markov_draftjs --channel conda-forge
+
+# List dependencies of `markov_draftjs`:
+mamba repoquery depends markov_draftjs --channel conda-forge
+```
+
 
 About conda-forge
 =================
+
+[![Powered by
+NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](https://numfocus.org)
 
 conda-forge is a community-led conda channel of installable packages.
 In order to provide high-quality builds, the process has been automated into the
@@ -54,13 +97,15 @@ for each of the installable packages. Such a repository is known as a *feedstock
 A feedstock is made up of a conda recipe (the instructions on what and how to build
 the package) and the necessary configurations for automatic building using freely
 available continuous integration services. Thanks to the awesome service provided by
-[CircleCI](https://circleci.com/), [AppVeyor](http://www.appveyor.com/)
-and [TravisCI](https://travis-ci.org/) it is possible to build and upload installable
-packages to the [conda-forge](https://anaconda.org/conda-forge)
-[Anaconda-Cloud](http://docs.anaconda.org/) channel for Linux, Windows and OSX respectively.
+[Azure](https://azure.microsoft.com/en-us/services/devops/), [GitHub](https://github.com/),
+[CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
+[Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
+it is possible to build and upload installable packages to the
+[conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
+channel for Linux, Windows and OSX respectively.
 
 To manage the continuous integration and simplify feedstock maintenance
-[conda-smithy](http://github.com/conda-forge/conda-smithy) has been developed.
+[conda-smithy](https://github.com/conda-forge/conda-smithy) has been developed.
 Using the ``conda-forge.yml`` within this repository, it is possible to re-render all of
 this feedstock's supporting files (e.g. the CI configuration files) with ``conda smithy rerender``.
 
@@ -96,7 +141,15 @@ build distinct package versions.
 
 In order to produce a uniquely identifiable distribution:
  * If the version of a package **is not** being increased, please add or increase
-   the [``build/number``](http://conda.pydata.org/docs/building/meta-yaml.html#build-number-and-string).
+   the [``build/number``](https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html#build-number-and-string).
  * If the version of a package **is** being increased, please remember to return
-   the [``build/number``](http://conda.pydata.org/docs/building/meta-yaml.html#build-number-and-string)
+   the [``build/number``](https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html#build-number-and-string)
    back to 0.
+
+Feedstock Maintainers
+=====================
+
+* [@cshaley](https://github.com/cshaley/)
+* [@rxm7706](https://github.com/rxm7706/)
+* [@sannykr](https://github.com/sannykr/)
+
